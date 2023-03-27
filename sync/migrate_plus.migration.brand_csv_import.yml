@@ -1,0 +1,28 @@
+uuid: f565cfd9-2ac8-402c-8419-60c812ec832e
+langcode: en
+status: true
+dependencies: null
+id: brand_csv_import
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: tyres
+label: 'Brands Taxonomy'
+source:
+  plugin: csv
+  path: /var/www/html/web/sites/default/files/csv_import/shinservice-b2b-tyres.csv
+  delimiter: "\t"
+  enclosure: '"'
+  header_offset: 0
+  ids:
+    - brand
+  fields:
+    -
+      name: brand
+process:
+  name: brand
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: brand
+migration_dependencies: null

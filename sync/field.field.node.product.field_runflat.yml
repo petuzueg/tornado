@@ -1,0 +1,19 @@
+uuid: e8b170f7-cd05-40b4-b314-2948751b7e6d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_runflat
+    - node.type.product
+id: node.product.field_runflat
+field_name: field_runflat
+entity_type: node
+bundle: product
+label: RunFlat
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

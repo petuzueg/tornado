@@ -1,0 +1,36 @@
+uuid: 2e79160b-c340-45dc-932b-b41e29b6ea60
+langcode: ru
+status: true
+dependencies:
+  config:
+    - feeds.feed_type.kolobox_shiny
+id: feeds_feed.kolobox_shiny.default
+targetEntityType: feeds_feed
+bundle: kolobox_shiny
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

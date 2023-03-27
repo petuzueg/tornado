@@ -1,0 +1,17 @@
+uuid: cfdfb806-5b0a-488b-a45d-3378d192d4e1
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Номенклатура
+type: product
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

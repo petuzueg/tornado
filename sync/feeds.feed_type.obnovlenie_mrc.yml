@@ -1,0 +1,129 @@
+uuid: eabf3913-1602-4e14-93e8-27c459fce18e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.base_field_override.node.product.title
+    - field.field.node.product.body
+    - field.field.node.product.field_mrc
+    - field.field.node.product.field_price
+    - node.type.product
+  module:
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      257f247f-2993-4955-8868-e58a49e69d1d:
+        text: "[5] [4] \r\n[8]\r\nИсточник - Шинсервис МРЦ (Excel файл с сайта)."
+        uuid: 257f247f-2993-4955-8868-e58a49e69d1d
+        plugin: rewrite
+        source: '8'
+        weight: 0
+        label: Перезапись
+label: 'Шинсервиc МРЦ(лето)'
+id: obnovlenie_mrc
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: csv
+  directory: 'public://feeds/csv'
+parser: csv
+parser_configuration:
+  delimiter: ;
+  no_headers: true
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: product
+  langcode: ru
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: true
+  authorize: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 3
+custom_sources:
+  3:
+    value: '3'
+    label: '3'
+    machine_name: '3'
+    type: csv
+  11:
+    value: '11'
+    label: '11'
+    machine_name: '11'
+    type: csv
+  '':
+    value: ''
+    label: ''
+    machine_name: ''
+    type: csv
+  8:
+    value: '8'
+    label: '8'
+    machine_name: '8'
+    type: csv
+  5:
+    value: '5'
+    label: '5'
+    machine_name: '5'
+    type: csv
+  9:
+    value: '9'
+    label: '9'
+    machine_name: '9'
+    type: csv
+  4:
+    value: '4'
+    label: '4'
+    machine_name: '4'
+    type: csv
+  12:
+    value: '12'
+    label: '12'
+    machine_name: '12'
+    type: csv
+  10:
+    value: '10'
+    label: '10'
+    machine_name: '10'
+    type: csv
+mappings:
+  -
+    target: body
+    map:
+      value: '8'
+      summary: '4'
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: field_price
+    map:
+      value: '9'
+    settings:
+      language: null
+  -
+    target: title
+    map:
+      value: '3'
+    settings:
+      language: null
+    unique:
+      value: '1'
+  -
+    target: temporary_target
+    map:
+      temporary: '5'
+  -
+    target: field_mrc
+    map:
+      value: '10'
+    settings:
+      language: null

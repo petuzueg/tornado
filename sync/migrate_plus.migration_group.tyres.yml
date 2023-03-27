@@ -1,0 +1,10 @@
+uuid: c8c9d8cd-a2c6-4952-b0e1-b4470879a607
+langcode: ru
+status: true
+dependencies: {  }
+id: tyres
+label: tyres
+description: ''
+source_type: null
+module: null
+shared_configuration: null

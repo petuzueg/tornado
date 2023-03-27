@@ -1,0 +1,8 @@
+uuid: e171965f-0c16-426b-9879-829242e99427
+langcode: ru
+status: true
+dependencies: {  }
+name: Сезонность
+vid: sezonnost
+description: ''
+weight: 0

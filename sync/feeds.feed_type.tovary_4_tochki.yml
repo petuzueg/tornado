@@ -1,0 +1,150 @@
+uuid: 6a944d71-3d47-4cb8-b3ca-ebe4f2534b93
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.tovar.field_amount
+    - field.field.node.tovar.field_node_sku
+    - field.field.node.tovar.field_postavschik
+    - field.field.node.tovar.field_price
+    - node.type.tovar
+  module:
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      1fc07cc8-e11a-4fc6-b7f2-e5dfc4a554b5:
+        text: '[wrh] ([code])'
+        uuid: 1fc07cc8-e11a-4fc6-b7f2-e5dfc4a554b5
+        plugin: rewrite
+        source: full_name
+        weight: 0
+        label: Перезапись
+      df703a13-b2dd-4fe5-82a7-ca2fa9aedcc8:
+        find: '232'
+        replace: '4tochki - yamka'
+        case_sensitive: false
+        word_boundaries: false
+        whole: false
+        uuid: df703a13-b2dd-4fe5-82a7-ca2fa9aedcc8
+        plugin: find_replace
+        source: wrh
+        weight: 0
+        label: 'Find replace'
+      1005d872-6e82-4b63-a702-1c477d0e7bd9:
+        find: '1'
+        replace: '4tochki - mkrs'
+        case_sensitive: false
+        word_boundaries: false
+        whole: false
+        uuid: 1005d872-6e82-4b63-a702-1c477d0e7bd9
+        plugin: find_replace
+        source: wrh
+        weight: 1
+        label: 'Find replace'
+      3a3df576-f097-4cc3-87f1-1f69e690d638:
+        find: '/^0+(?!$)/'
+        replace: ''
+        limit: null
+        uuid: 3a3df576-f097-4cc3-87f1-1f69e690d638
+        plugin: find_replace_regex
+        source: code
+        weight: 0
+        label: 'Find replace REGEX'
+label: 'товары - 4 Точки'
+id: tovary_4_tochki
+description: ''
+help: ''
+import_period: -1
+fetcher: directory
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  allowed_schemes:
+    public: public
+  recursive_scan: false
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: tovar
+  langcode: ru
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _delete
+  skip_hash_check: false
+  authorize: false
+  revision: false
+  expire: 3600
+  owner_feed_author: false
+  owner_id: 5
+custom_sources:
+  code:
+    value: code
+    label: code
+    machine_name: code
+    type: csv
+  full_name:
+    value: full_name
+    label: full_name
+    machine_name: full_name
+    type: csv
+  price:
+    value: price
+    label: price
+    machine_name: price
+    type: csv
+  wrh:
+    value: wrh
+    label: wrh
+    machine_name: wrh
+    type: csv
+  amount:
+    value: amount
+    label: amount
+    machine_name: amount
+    type: csv
+mappings:
+  -
+    target: field_node_sku
+    map:
+      target_id: code
+    settings:
+      language: null
+      reference_by: title
+      autocreate: false
+      feeds_item: false
+  -
+    target: title
+    map:
+      value: full_name
+    settings:
+      language: null
+    unique:
+      value: '1'
+  -
+    target: field_price
+    map:
+      value: price
+    settings:
+      language: null
+  -
+    target: field_postavschik
+    map:
+      target_id: wrh
+    settings:
+      language: ''
+      reference_by: name
+      feeds_item: guid
+      autocreate: '1'
+  -
+    target: field_amount
+    map:
+      value: amount
+    settings:
+      language: null
+    unique: {  }

@@ -1,0 +1,8 @@
+uuid: 6cbe1660-408a-479b-ba9d-a20b2eb3dab2
+langcode: ru
+status: true
+dependencies: {  }
+name: sku
+vid: sku
+description: ''
+weight: 0

@@ -1,0 +1,39 @@
+uuid: 8dc65ee5-e6c5-462c-aea4-0ea053996b58
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - trnd_import
+id: shinservice_csv
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: tyres
+label: 'Shinservice Import'
+source:
+  plugin: csv
+  path: /var/www/html/web/sites/default/files/csv_import/shinservice-b2b-tyres.csv
+  delimiter: "\t"
+  enclosure: '"'
+  ids:
+    - sku
+process:
+  field_node_sku:
+    -
+      plugin: entity_lookup
+      source: sku
+  title: title
+  field_price: price
+  field_amount: amount_local
+  type:
+    plugin: default_value
+    default_value: tovar
+  field_postavschik:
+    -
+      plugin: default_value
+      default_value: 36310
+destination:
+  plugin: 'entity:node'
+migration_dependencies: null

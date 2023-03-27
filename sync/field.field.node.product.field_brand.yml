@@ -1,0 +1,29 @@
+uuid: 31704a2c-4075-4911-95ed-8dd31e368974
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_brand
+    - node.type.product
+    - taxonomy.vocabulary.brand
+id: node.product.field_brand
+field_name: field_brand
+entity_type: node
+bundle: product
+label: Бренд
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      brand: brand
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,301 @@
+uuid: d7138e74-db89-4ebf-929f-c1879de76b7d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.product.body
+    - field.field.node.product.field_brand
+    - field.field.node.product.field_diameter
+    - field.field.node.product.field_load_index
+    - field.field.node.product.field_model
+    - field.field.node.product.field_runflat
+    - field.field.node.product.field_sezonnost
+    - field.field.node.product.field_speed_index
+    - field.field.node.product.field_tire_profile
+    - field.field.node.product.field_tyre_width
+    - node.type.product
+  module:
+    - feeds_ex
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      47b78c69-83a4-4ffa-aa16-5c83373117ae:
+        text: 'R[diameter]'
+        uuid: 47b78c69-83a4-4ffa-aa16-5c83373117ae
+        plugin: rewrite
+        source: diameter
+        weight: 0
+        label: Перезапись
+      1c37b756-6d0d-4a12-9b71-c0101215920c:
+        find: '2'
+        replace: S
+        case_sensitive: false
+        word_boundaries: false
+        whole: false
+        uuid: 1c37b756-6d0d-4a12-9b71-c0101215920c
+        plugin: find_replace
+        source: season
+        weight: 0
+        label: '2'
+      260a5b76-8e82-4886-919e-36585972d7ca:
+        find: '1'
+        replace: W
+        case_sensitive: false
+        word_boundaries: false
+        whole: false
+        uuid: 260a5b76-8e82-4886-919e-36585972d7ca
+        plugin: find_replace
+        source: season
+        weight: 1
+        label: '1'
+      fd3995e9-7f90-4a08-b62a-904e28b8863a:
+        find: '3'
+        replace: A
+        case_sensitive: false
+        word_boundaries: false
+        whole: false
+        uuid: fd3995e9-7f90-4a08-b62a-904e28b8863a
+        plugin: find_replace
+        source: season
+        weight: 2
+        label: 'Find replace'
+      fe23808e-7f2c-45bb-a641-b5e3c55aea32:
+        default_value: '000'
+        only_if_empty: true
+        uuid: fe23808e-7f2c-45bb-a641-b5e3c55aea32
+        plugin: default_value
+        source: articul
+        weight: -9
+        label: 'Set value or default value'
+      ec8297cf-4522-4224-8210-0d5a15e515ec:
+        default_value: 'Источник: Колобокс XML-файл.'
+        only_if_empty: false
+        uuid: ec8297cf-4522-4224-8210-0d5a15e515ec
+        plugin: default_value
+        source: all_data
+        weight: 0
+        label: 'Источник: Колобокс XML-файл.'
+      1059a361-1976-4773-b8ff-86ef7a9d2cf4:
+        find: '/^0+(?!$)/'
+        replace: ''
+        limit: null
+        uuid: 1059a361-1976-4773-b8ff-86ef7a9d2cf4
+        plugin: find_replace_regex
+        source: articul
+        weight: -10
+        label: 'Find replace REGEX'
+label: 'Kolobox - номенклатура'
+id: kolobox_shiny
+description: ''
+help: ''
+import_period: -1
+fetcher: directory
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  allowed_schemes:
+    public: public
+  recursive_scan: false
+parser: xml
+parser_configuration:
+  context:
+    value: /tyresList/product
+  source_encoding:
+    - auto
+  display_errors: false
+  line_limit: 100
+  use_tidy: false
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: product
+  langcode: ru
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: false
+  owner_id: 2
+custom_sources:
+  title_code1:
+    label: title
+    machine_name: title_code1
+    value: 'concat(mark, " ", model, " ", treadWidth, "/", profileHeight, " ", diameter, " ", loadindex, speedindex,  " ", xl)'
+    raw: false
+    inner: false
+    type: xml
+  brand:
+    label: brand
+    machine_name: brand
+    value: mark
+    raw: false
+    inner: false
+    type: xml
+  '':
+    label: ''
+    machine_name: ''
+    value: ''
+    raw: false
+    inner: false
+    type: xml
+  diameter:
+    label: diameter
+    machine_name: diameter
+    value: diameter
+    raw: false
+    inner: false
+    type: xml
+  model:
+    label: model
+    machine_name: model
+    value: model
+    raw: false
+    inner: false
+    type: xml
+  treadwidth:
+    label: treadWidth
+    machine_name: treadwidth
+    value: treadWidth
+    raw: false
+    inner: false
+    type: xml
+  profileheight:
+    label: profileHeight
+    machine_name: profileheight
+    value: profileHeight
+    raw: false
+    inner: false
+    type: xml
+  season:
+    label: season
+    machine_name: season
+    value: season
+    raw: false
+    inner: false
+    type: xml
+  all_data:
+    label: all_data
+    machine_name: all_data
+    value: 'concat(*)'
+    raw: false
+    inner: false
+    type: xml
+  runflat:
+    label: runflat
+    machine_name: runflat
+    value: runflat
+    raw: false
+    inner: false
+    type: xml
+  speedindex:
+    label: speedindex
+    machine_name: speedindex
+    value: speedindex
+    raw: false
+    inner: false
+    type: xml
+  loadindex:
+    label: loadindex
+    machine_name: loadindex
+    value: loadindex
+    raw: false
+    inner: false
+    type: xml
+  articul:
+    label: articul
+    machine_name: articul
+    value: articul
+    raw: false
+    inner: false
+    type: xml
+mappings:
+  -
+    target: title
+    map:
+      value: articul
+    settings:
+      language: null
+    unique:
+      value: '1'
+  -
+    target: field_brand
+    map:
+      target_id: brand
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+      feeds_item: false
+  -
+    target: field_diameter
+    map:
+      target_id: diameter
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+      feeds_item: false
+  -
+    target: field_model
+    map:
+      target_id: model
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+      feeds_item: false
+  -
+    target: field_tyre_width
+    map:
+      value: treadwidth
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_sezonnost
+    map:
+      target_id: season
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+      feeds_item: false
+  -
+    target: body
+    map:
+      value: all_data
+      summary: ''
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: field_runflat
+    map:
+      value: runflat
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_load_index
+    map:
+      value: loadindex
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_speed_index
+    map:
+      value: speedindex
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_tire_profile
+    map:
+      value: profileheight
+    settings:
+      language: null
+    unique: {  }

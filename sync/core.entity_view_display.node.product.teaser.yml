@@ -1,0 +1,69 @@
+uuid: 55c1d725-449b-41fa-9e63-747d17656928
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.product.body
+    - field.field.node.product.feeds_item
+    - field.field.node.product.field_brand
+    - field.field.node.product.field_description
+    - field.field.node.product.field_diameter
+    - field.field.node.product.field_foto
+    - field.field.node.product.field_freeze
+    - field.field.node.product.field_load_index
+    - field.field.node.product.field_model
+    - field.field.node.product.field_mrc
+    - field.field.node.product.field_price
+    - field.field.node.product.field_runflat
+    - field.field.node.product.field_sezonnost
+    - field.field.node.product.field_shipy
+    - field.field.node.product.field_speed_index
+    - field.field.node.product.field_tire_profile
+    - field.field.node.product.field_type
+    - field.field.node.product.field_tyre_tmp
+    - field.field.node.product.field_tyre_width
+    - field.field.node.product.field_upc
+    - node.type.product
+  module:
+    - text
+    - user
+id: node.product.teaser
+targetEntityType: node
+bundle: product
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true
+  field_brand: true
+  field_description: true
+  field_diameter: true
+  field_foto: true
+  field_freeze: true
+  field_load_index: true
+  field_model: true
+  field_mrc: true
+  field_price: true
+  field_runflat: true
+  field_sezonnost: true
+  field_shipy: true
+  field_speed_index: true
+  field_tire_profile: true
+  field_type: true
+  field_tyre_tmp: true
+  field_tyre_width: true
+  field_upc: true
+  langcode: true

@@ -1,0 +1,23 @@
+uuid: 382f08a9-bacd-41ad-a294-2f60e45ddcf9
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_amount
+    - node.type.tovar
+id: node.tovar.field_amount
+field_name: field_amount
+entity_type: node
+bundle: tovar
+label: Количество
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

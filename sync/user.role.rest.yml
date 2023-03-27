@@ -1,0 +1,61 @@
+uuid: 27e02dde-3ae1-4546-b32c-b7350a8f8f69
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.product
+    - node.type.tovar
+    - taxonomy.vocabulary.brand
+    - taxonomy.vocabulary.diametr
+    - taxonomy.vocabulary.model
+    - taxonomy.vocabulary.postavschiki
+    - taxonomy.vocabulary.sezonnost
+    - taxonomy.vocabulary.sku
+    - taxonomy.vocabulary.tags
+  module:
+    - node
+    - taxonomy
+id: rest
+label: rest
+weight: 4
+is_admin: null
+permissions:
+  - 'access taxonomy overview'
+  - 'administer taxonomy'
+  - 'create product content'
+  - 'create terms in brand'
+  - 'create terms in diametr'
+  - 'create terms in model'
+  - 'create terms in postavschiki'
+  - 'create terms in sezonnost'
+  - 'create terms in sku'
+  - 'create terms in tags'
+  - 'create tovar content'
+  - 'delete any product content'
+  - 'delete any tovar content'
+  - 'delete own product content'
+  - 'delete own tovar content'
+  - 'delete product revisions'
+  - 'delete terms in brand'
+  - 'delete terms in diametr'
+  - 'delete terms in model'
+  - 'delete terms in postavschiki'
+  - 'delete terms in sezonnost'
+  - 'delete terms in sku'
+  - 'delete terms in tags'
+  - 'delete tovar revisions'
+  - 'edit any product content'
+  - 'edit any tovar content'
+  - 'edit own product content'
+  - 'edit own tovar content'
+  - 'edit terms in brand'
+  - 'edit terms in diametr'
+  - 'edit terms in model'
+  - 'edit terms in postavschiki'
+  - 'edit terms in sezonnost'
+  - 'edit terms in sku'
+  - 'edit terms in tags'
+  - 'revert product revisions'
+  - 'revert tovar revisions'
+  - 'view product revisions'
+  - 'view tovar revisions'

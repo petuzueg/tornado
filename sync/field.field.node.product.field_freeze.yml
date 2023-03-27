@@ -1,0 +1,23 @@
+uuid: 344ebe9a-14de-4b08-9d21-06b253ccd488
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_freeze
+    - node.type.product
+id: node.product.field_freeze
+field_name: field_freeze
+entity_type: node
+bundle: product
+label: Заморозить
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Вкл
+  off_label: Выкл
+field_type: boolean

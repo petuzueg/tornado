@@ -1,0 +1,11 @@
+uuid: 74a29506-fdf4-4266-892a-84ce09b36e1b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.sezonnost
+id: taxonomy_term.sezonnost
+target_entity_type_id: taxonomy_term
+target_bundle: sezonnost
+default_langcode: site_default
+language_alterable: false

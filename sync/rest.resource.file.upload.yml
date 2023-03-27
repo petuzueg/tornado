@@ -1,0 +1,23 @@
+uuid: d7522d93-35c8-47e4-b361-bbd613b2da0a
+langcode: ru
+status: true
+dependencies:
+  module:
+    - file
+    - hal
+    - serialization
+    - simple_oauth
+    - user
+id: file.upload
+plugin_id: 'file:upload'
+granularity: resource
+configuration:
+  methods:
+    - POST
+  formats:
+    - hal_json
+    - json
+    - xml
+  authentication:
+    - oauth2
+    - cookie

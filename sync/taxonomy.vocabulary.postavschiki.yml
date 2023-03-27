@@ -1,0 +1,8 @@
+uuid: 43da0b52-1592-46ec-81da-cb247b6c626b
+langcode: ru
+status: true
+dependencies: {  }
+name: Поставщики
+vid: postavschiki
+description: ''
+weight: 0

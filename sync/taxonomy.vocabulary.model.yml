@@ -1,0 +1,8 @@
+uuid: 8d5a96e5-a7ac-47e8-b9f7-fc5e924e9bee
+langcode: ru
+status: true
+dependencies: {  }
+name: Модель
+vid: model
+description: ''
+weight: 0

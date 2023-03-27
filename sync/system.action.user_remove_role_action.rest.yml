@@ -1,0 +1,14 @@
+uuid: 99bfe004-0721-495f-90ea-1a93dc460b8e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - user.role.rest
+  module:
+    - user
+id: user_remove_role_action.rest
+label: 'Удалить роль rest из выбранных пользователей'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: rest

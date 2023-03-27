@@ -1,0 +1,23 @@
+uuid: b1912c06-34fc-4b41-b3fe-fa942f2491d8
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.tovar
+  module:
+    - feeds
+id: node.tovar.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: tovar
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

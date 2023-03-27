@@ -1,0 +1,18 @@
+uuid: dec31167-a1e8-42df-b19d-bfda818ec35b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.product
+id: node.product.title
+field_name: title
+entity_type: node
+bundle: product
+label: Артикул
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,23 @@
+uuid: d4f5b7d9-80be-4b12-85b0-2a869cfb735f
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tyre_tmp
+    - node.type.product
+id: node.product.field_tyre_tmp
+field_name: field_tyre_tmp
+entity_type: node
+bundle: product
+label: tyre_tmp
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

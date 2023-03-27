@@ -1,0 +1,11 @@
+uuid: 6e721384-cfd3-4874-bb09-37d5dfdd694f
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.tovar
+id: node.tovar
+target_entity_type_id: node
+target_bundle: tovar
+default_langcode: site_default
+language_alterable: false

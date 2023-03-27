@@ -1,0 +1,23 @@
+uuid: 4d1a47c6-108d-4683-95a9-fbed85fb5d89
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_raschetnaya_cena
+    - node.type.tovar
+  module:
+    - computed_field
+id: node.tovar.field_raschetnaya_cena
+field_name: field_raschetnaya_cena
+entity_type: node
+bundle: tovar
+label: 'Расчетная цена'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  prefix: ''
+  suffix: ''
+field_type: computed_decimal

@@ -1,0 +1,14 @@
+uuid: 9097c56a-5233-4789-8375-6c749ebff711
+langcode: ru
+status: true
+dependencies:
+  config:
+    - user.role.rest
+  module:
+    - user
+id: user_add_role_action.rest
+label: 'Добавьте роль rest выбранным пользователям'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: rest

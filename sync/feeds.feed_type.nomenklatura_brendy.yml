@@ -1,0 +1,59 @@
+uuid: 159680fb-deda-4a8b-a6a2-cfb5908719bd
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.brand
+  module:
+    - feeds_ex
+    - taxonomy
+label: 'Номенклатура - бренды'
+id: nomenklatura_brendy
+description: ''
+help: ''
+import_period: 86400
+fetcher: directory
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  allowed_schemes:
+    public: public
+  recursive_scan: false
+parser: xml
+parser_configuration:
+  context:
+    value: /tyresList/product
+  source_encoding:
+    - auto
+  display_errors: false
+  line_limit: 100
+  use_tidy: false
+processor: 'entity:taxonomy_term'
+processor_configuration:
+  values:
+    vid: brand
+  langcode: ru
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  mark:
+    label: mark
+    machine_name: mark
+    value: mark
+    raw: false
+    inner: false
+    type: xml
+mappings:
+  -
+    target: name
+    map:
+      value: mark
+    settings:
+      language: null
+    unique:
+      value: '1'

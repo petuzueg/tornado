@@ -1,0 +1,8 @@
+uuid: 3150dcca-ac98-46f5-a6fc-2cb1c49ecccf
+langcode: ru
+status: true
+dependencies: {  }
+name: Диаметр
+vid: diametr
+description: ''
+weight: 0

@@ -1,0 +1,226 @@
+uuid: 898f7f80-db34-4726-8e8a-4aa9cda2c2c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.base_field_override.node.product.title
+    - field.field.node.product.field_brand
+    - field.field.node.product.field_diameter
+    - field.field.node.product.field_load_index
+    - field.field.node.product.field_model
+    - field.field.node.product.field_runflat
+    - field.field.node.product.field_sezonnost
+    - field.field.node.product.field_shipy
+    - field.field.node.product.field_speed_index
+    - field.field.node.product.field_tire_profile
+    - field.field.node.product.field_tyre_width
+    - node.type.product
+  module:
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      38a84b70-761c-4263-a2df-c7a08ecccd0f:
+        find_replace:
+          - "s|S\r"
+          - "w|W\r"
+          - u|A
+        separator: '|'
+        case_sensitive: false
+        word_boundaries: false
+        whole: true
+        uuid: 38a84b70-761c-4263-a2df-c7a08ecccd0f
+        plugin: find_replace_multiline
+        source: season
+        weight: 0
+        label: 'Find replace (multiline)'
+      76cf374b-e879-43f1-a276-218be2e327e2:
+        find: '1'
+        replace: 'Y'
+        case_sensitive: false
+        word_boundaries: false
+        whole: true
+        uuid: 76cf374b-e879-43f1-a276-218be2e327e2
+        plugin: find_replace
+        source: thorn
+        weight: 0
+        label: 'Find replace'
+label: '4tochki - номенклатура'
+id: 4tochki_nomenklatura
+description: ''
+help: ''
+import_period: -1
+fetcher: directory
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  allowed_schemes:
+    public: public
+  recursive_scan: false
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: product
+  langcode: ru
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: false
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 5
+custom_sources:
+  code:
+    value: code
+    label: code
+    machine_name: code
+    type: csv
+  season:
+    value: season
+    label: season
+    machine_name: season
+    type: csv
+  marka:
+    value: marka
+    label: marka
+    machine_name: marka
+    type: csv
+  model:
+    value: model
+    label: model
+    machine_name: model
+    type: csv
+  full_name:
+    value: full_name
+    label: full_name
+    machine_name: full_name
+    type: csv
+  thorn:
+    value: thorn
+    label: thorn
+    machine_name: thorn
+    type: csv
+  '':
+    value: ''
+    label: ''
+    machine_name: ''
+    type: blank
+  tyre_width:
+    value: tyre_width
+    label: tyre_width
+    machine_name: tyre_width
+    type: blank
+  load_index:
+    value: load_index
+    label: load_index
+    machine_name: load_index
+    type: blank
+  speed_index:
+    value: speed_index
+    label: speed_index
+    machine_name: speed_index
+    type: blank
+  runflat:
+    value: runflat
+    label: runflat
+    machine_name: runflat
+    type: blank
+  tire_profile:
+    value: tire_profile
+    label: tire_profile
+    machine_name: tire_profile
+    type: blank
+mappings:
+  -
+    target: title
+    map:
+      value: code
+    settings:
+      language: null
+    unique:
+      value: '1'
+  -
+    target: field_sezonnost
+    map:
+      target_id: season
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+      feeds_item: false
+  -
+    target: field_brand
+    map:
+      target_id: marka
+    settings:
+      language: ''
+      reference_by: name
+      feeds_item: guid
+      autocreate: '1'
+  -
+    target: field_model
+    map:
+      target_id: model
+    settings:
+      language: ''
+      reference_by: name
+      feeds_item: guid
+      autocreate: '1'
+  -
+    target: field_diameter
+    map:
+      target_id: full_name
+    settings:
+      language: ''
+      reference_by: name
+      feeds_item: guid
+      autocreate: 0
+  -
+    target: field_tyre_width
+    map:
+      value: tyre_width
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_load_index
+    map:
+      value: load_index
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_speed_index
+    map:
+      value: speed_index
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_runflat
+    map:
+      value: runflat
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_shipy
+    map:
+      value: thorn
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_tire_profile
+    map:
+      value: tire_profile
+    settings:
+      language: null
+    unique: {  }

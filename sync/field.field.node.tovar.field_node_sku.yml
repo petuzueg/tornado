@@ -1,0 +1,29 @@
+uuid: 164544be-66a7-4708-99ae-3a3373f4c923
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_node_sku
+    - node.type.product
+    - node.type.tovar
+id: node.tovar.field_node_sku
+field_name: field_node_sku
+entity_type: node
+bundle: tovar
+label: 'Артикул производителя'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      product: product
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

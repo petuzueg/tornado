@@ -1,0 +1,23 @@
+uuid: 56edc983-6f7d-4326-9876-c51bc6757ef6
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mrc
+    - node.type.product
+id: node.product.field_mrc
+field_name: field_mrc
+entity_type: node
+bundle: product
+label: МРЦ
+description: 'Минимальная розничная цена.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

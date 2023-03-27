@@ -1,0 +1,128 @@
+uuid: fc32410c-6da5-4115-a38b-eefbe5511385
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.base_field_override.node.product.title
+    - field.field.node.product.body
+    - field.field.node.product.field_price
+    - node.type.product
+  module:
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      3b81a494-f3ae-4dc4-bbce-8d86d25c5c3c:
+        text: "[5] [4] \r\n[9]\r\nИсточник - Шинсервис МРЦ (Excel файл с сайта)."
+        uuid: 3b81a494-f3ae-4dc4-bbce-8d86d25c5c3c
+        plugin: rewrite
+        source: '5'
+        weight: 0
+        label: Перезапись
+      9e94f211-3bd9-4f44-88f0-0b6a346078ea:
+        uuid: 9e94f211-3bd9-4f44-88f0-0b6a346078ea
+        plugin: cast_to_int
+        source: '11'
+        weight: 0
+        label: 'Cast to integer'
+label: 'Шинсервиc МРЦ(зима)'
+id: shinservic_mrc_zima_
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds/csv'
+parser: csv
+parser_configuration:
+  delimiter: ;
+  no_headers: true
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: product
+  langcode: ru
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: true
+  authorize: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 3
+custom_sources:
+  3:
+    value: '3'
+    label: '3'
+    machine_name: '3'
+    type: csv
+  12:
+    value: '12'
+    label: '12'
+    machine_name: '12'
+    type: csv
+  10:
+    value: '10'
+    label: '10'
+    machine_name: '10'
+    type: csv
+  5:
+    value: '5'
+    label: '5'
+    machine_name: '5'
+    type: csv
+  4:
+    value: '4'
+    label: '4'
+    machine_name: '4'
+    type: csv
+  9:
+    value: '9'
+    label: '9'
+    machine_name: '9'
+    type: csv
+  11:
+    value: '11'
+    label: '11'
+    machine_name: '11'
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: '3'
+    settings:
+      language: null
+    unique:
+      value: '1'
+  -
+    target: field_price
+    map:
+      value: '10'
+    settings:
+      language: null
+  -
+    target: body
+    map:
+      value: '5'
+      summary: ''
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: temporary_target
+    map:
+      temporary: '4'
+  -
+    target: temporary_target
+    map:
+      temporary: '9'
+  -
+    target: field_mrc
+    map:
+      value: '11'
+    settings:
+      language: null

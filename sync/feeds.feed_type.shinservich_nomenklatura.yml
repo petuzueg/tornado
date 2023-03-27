@@ -1,0 +1,220 @@
+uuid: d917eb9e-a53f-4a1f-ae6e-1cb69ebd3723
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.product.field_brand
+    - field.field.node.product.field_diameter
+    - field.field.node.product.field_load_index
+    - field.field.node.product.field_model
+    - field.field.node.product.field_mrc
+    - field.field.node.product.field_runflat
+    - field.field.node.product.field_sezonnost
+    - field.field.node.product.field_shipy
+    - field.field.node.product.field_speed_index
+    - field.field.node.product.field_tire_profile
+    - field.field.node.product.field_tyre_width
+    - node.type.product
+  module:
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      ff0ce1f0-6197-4764-8cdb-d5b64a3a827e:
+        find: '/^0+(?!$)/'
+        replace: ''
+        limit: null
+        uuid: ff0ce1f0-6197-4764-8cdb-d5b64a3a827e
+        plugin: find_replace_regex
+        source: '2'
+        weight: 0
+        label: 'Find replace REGEX'
+label: 'Шинсервиc - номенклатура'
+id: shinservich_nomenklatura
+description: ''
+help: ''
+import_period: -1
+fetcher: directory
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  allowed_schemes:
+    public: public
+  recursive_scan: false
+parser: csv
+parser_configuration:
+  delimiter: TAB
+  no_headers: true
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: product
+  langcode: ru
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 3
+custom_sources:
+  2:
+    value: '2'
+    label: '2'
+    machine_name: '2'
+    type: csv
+  4:
+    value: '4'
+    label: '4'
+    machine_name: '4'
+    type: csv
+  5:
+    value: '5'
+    label: '5'
+    machine_name: '5'
+    type: csv
+  6:
+    value: '6'
+    label: '6'
+    machine_name: '6'
+    type: csv
+  7:
+    value: '7'
+    label: '7'
+    machine_name: '7'
+    type: csv
+  8:
+    value: '8'
+    label: '8'
+    machine_name: '8'
+    type: csv
+  9:
+    value: '9'
+    label: '9'
+    machine_name: '9'
+    type: csv
+  10:
+    value: '10'
+    label: '10'
+    machine_name: '10'
+    type: csv
+  11:
+    value: '11'
+    label: '11'
+    machine_name: '11'
+    type: csv
+  19:
+    value: '19'
+    label: '19'
+    machine_name: '19'
+    type: csv
+  18:
+    value: '18'
+    label: '18'
+    machine_name: '18'
+    type: csv
+  13:
+    value: '13'
+    label: '13'
+    machine_name: '13'
+    type: csv
+  12:
+    value: '12'
+    label: '12'
+    machine_name: '12'
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: '2'
+    settings:
+      language: null
+    unique:
+      value: '1'
+  -
+    target: field_sezonnost
+    map:
+      target_id: '4'
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+      feeds_item: false
+  -
+    target: field_brand
+    map:
+      target_id: '5'
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+      feeds_item: false
+  -
+    target: field_model
+    map:
+      target_id: '6'
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+      feeds_item: false
+  -
+    target: field_diameter
+    map:
+      target_id: '7'
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+      feeds_item: false
+  -
+    target: field_tyre_width
+    map:
+      value: '8'
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_load_index
+    map:
+      value: '10'
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_speed_index
+    map:
+      value: '11'
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_mrc
+    map:
+      value: '18'
+    settings:
+      language: null
+  -
+    target: field_runflat
+    map:
+      value: '13'
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_shipy
+    map:
+      value: '12'
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_tire_profile
+    map:
+      value: '9'
+    settings:
+      language: null
+    unique: {  }

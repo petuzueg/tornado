@@ -1,0 +1,19 @@
+uuid: 018b6f63-38db-4659-8dab-9afbcb2b10d3
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shipy
+    - node.type.product
+id: node.product.field_shipy
+field_name: field_shipy
+entity_type: node
+bundle: product
+label: Шипы
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

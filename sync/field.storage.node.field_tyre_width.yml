@@ -1,0 +1,20 @@
+uuid: 93ff2470-3c7f-407f-9010-09cf5d24e45d
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_tyre_width
+field_name: field_tyre_width
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

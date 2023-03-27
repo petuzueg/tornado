@@ -1,0 +1,22 @@
+uuid: ab5671d7-a42b-4f84-a622-fac2f39fd704
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: cc6IWpv9MQ3pbrgF3ca7wajRPedEBM8vIFSihtYj_M4
+id: node.field_upc
+field_name: field_upc
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

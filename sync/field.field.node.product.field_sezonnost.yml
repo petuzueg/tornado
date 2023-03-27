@@ -1,0 +1,29 @@
+uuid: ace6037e-8a1b-46ca-8ced-fff11ce2f29a
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sezonnost
+    - node.type.product
+    - taxonomy.vocabulary.sezonnost
+id: node.product.field_sezonnost
+field_name: field_sezonnost
+entity_type: node
+bundle: product
+label: Сезонность
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sezonnost: sezonnost
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

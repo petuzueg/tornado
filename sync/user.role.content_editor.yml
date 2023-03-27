@@ -1,0 +1,106 @@
+uuid: 1337cdc5-7f98-490f-b3b1-06e11fbbeb39
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.article
+    - node.type.page
+    - taxonomy.vocabulary.brand
+    - taxonomy.vocabulary.diametr
+    - taxonomy.vocabulary.model
+    - taxonomy.vocabulary.postavschiki
+    - taxonomy.vocabulary.sezonnost
+    - taxonomy.vocabulary.sku
+    - taxonomy.vocabulary.tags
+  module:
+    - comment
+    - contextual
+    - feeds
+    - file
+    - node
+    - path
+    - system
+    - taxonomy
+    - toolbar
+    - tour
+_core:
+  default_config_hash: Wur9kcEOwY1Jal81NssKnz3RhVJxAvBwyWQBGcA_1Go
+id: content_editor
+label: 'Content editor'
+weight: 2
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access files overview'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'access tour'
+  - 'administer taxonomy'
+  - 'administer url aliases'
+  - 'clear obnovlenie_mrc feeds'
+  - 'clear own obnovlenie_mrc feeds'
+  - 'clear own shinservic_mrc_zima_ feeds'
+  - 'clear shinservic_mrc_zima_ feeds'
+  - 'create article content'
+  - 'create obnovlenie_mrc feeds'
+  - 'create page content'
+  - 'create shinservic_mrc_zima_ feeds'
+  - 'create terms in brand'
+  - 'create terms in diametr'
+  - 'create terms in model'
+  - 'create terms in postavschiki'
+  - 'create terms in sezonnost'
+  - 'create terms in sku'
+  - 'create terms in tags'
+  - 'create url aliases'
+  - 'delete article revisions'
+  - 'delete obnovlenie_mrc feeds'
+  - 'delete own article content'
+  - 'delete own obnovlenie_mrc feeds'
+  - 'delete own page content'
+  - 'delete own shinservic_mrc_zima_ feeds'
+  - 'delete page revisions'
+  - 'delete shinservic_mrc_zima_ feeds'
+  - 'delete terms in brand'
+  - 'delete terms in diametr'
+  - 'delete terms in model'
+  - 'delete terms in postavschiki'
+  - 'delete terms in sezonnost'
+  - 'delete terms in sku'
+  - 'delete terms in tags'
+  - 'edit own article content'
+  - 'edit own comments'
+  - 'edit own page content'
+  - 'edit terms in brand'
+  - 'edit terms in diametr'
+  - 'edit terms in model'
+  - 'edit terms in postavschiki'
+  - 'edit terms in sezonnost'
+  - 'edit terms in sku'
+  - 'edit terms in tags'
+  - 'import obnovlenie_mrc feeds'
+  - 'import own obnovlenie_mrc feeds'
+  - 'import own shinservic_mrc_zima_ feeds'
+  - 'import shinservic_mrc_zima_ feeds'
+  - 'revert all revisions'
+  - 'schedule_import obnovlenie_mrc feeds'
+  - 'schedule_import own obnovlenie_mrc feeds'
+  - 'schedule_import own shinservic_mrc_zima_ feeds'
+  - 'schedule_import shinservic_mrc_zima_ feeds'
+  - 'unlock obnovlenie_mrc feeds'
+  - 'unlock own obnovlenie_mrc feeds'
+  - 'unlock own shinservic_mrc_zima_ feeds'
+  - 'unlock shinservic_mrc_zima_ feeds'
+  - 'update obnovlenie_mrc feeds'
+  - 'update own obnovlenie_mrc feeds'
+  - 'update own shinservic_mrc_zima_ feeds'
+  - 'update shinservic_mrc_zima_ feeds'
+  - 'view all revisions'
+  - 'view obnovlenie_mrc feeds'
+  - 'view own obnovlenie_mrc feeds'
+  - 'view own shinservic_mrc_zima_ feeds'
+  - 'view own unpublished content'
+  - 'view shinservic_mrc_zima_ feeds'
+  - 'view the administration theme'

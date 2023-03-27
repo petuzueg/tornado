@@ -1,0 +1,52 @@
+uuid: 51a79aad-a59c-44e9-8cad-f7a909174674
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.model
+  module:
+    - taxonomy
+label: 'Номенклатура - модели (Шинсервис)'
+id: nomenklatura_modeli_shinservis_
+description: ''
+help: ''
+import_period: -1
+fetcher: directory
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  allowed_schemes:
+    public: public
+  recursive_scan: false
+parser: csv
+parser_configuration:
+  delimiter: TAB
+  no_headers: true
+  line_limit: 100
+processor: 'entity:taxonomy_term'
+processor_configuration:
+  values:
+    vid: model
+  langcode: ru
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  6:
+    value: '6'
+    label: '6'
+    machine_name: '6'
+    type: csv
+mappings:
+  -
+    target: name
+    map:
+      value: '6'
+    settings:
+      language: null
+    unique:
+      value: '1'

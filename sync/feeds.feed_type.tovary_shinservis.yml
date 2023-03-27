@@ -1,0 +1,154 @@
+uuid: e0b19226-5ff4-4f20-b2fb-e6b44b46a6d6
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.tovar.field_node_sku
+    - field.field.node.tovar.field_postavschik
+    - field.field.node.tovar.field_price
+    - node.type.tovar
+  module:
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      2d1c0ce5-38a4-4f86-8cbb-1e2c1792352b:
+        default_value: Шинсервис
+        only_if_empty: false
+        uuid: 2d1c0ce5-38a4-4f86-8cbb-1e2c1792352b
+        plugin: default_value
+        source: 'parent:uid'
+        weight: 0
+        label: 'Set value or default value'
+      f91d702f-91ec-4240-a78d-8173733436fb:
+        text: 'Шинсервис([2])'
+        uuid: f91d702f-91ec-4240-a78d-8173733436fb
+        plugin: rewrite
+        source: title
+        weight: 0
+        label: Перезапись
+      dfe21435-9355-464b-a6ea-8dd8c73b3d97:
+        find: '/^0+(?!$)/'
+        replace: ''
+        limit: null
+        uuid: dfe21435-9355-464b-a6ea-8dd8c73b3d97
+        plugin: find_replace_regex
+        source: '2'
+        weight: 0
+        label: 'Find replace REGEX'
+label: 'товары - Шинсервис'
+id: tovary_shinservis
+description: ''
+help: ''
+import_period: -1
+fetcher: directory
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  allowed_schemes:
+    public: public
+  recursive_scan: false
+parser: csv
+parser_configuration:
+  delimiter: TAB
+  no_headers: true
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: tovar
+  langcode: ru
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _delete
+  skip_hash_check: false
+  authorize: false
+  expire: 3600
+  owner_feed_author: false
+  owner_id: 3
+custom_sources:
+  2:
+    value: '2'
+    label: '2'
+    machine_name: '2'
+    type: csv
+  1:
+    value: '1'
+    label: '1'
+    machine_name: '1'
+    type: csv
+  16:
+    value: '16'
+    label: '16'
+    machine_name: '16'
+    type: csv
+  20:
+    value: '20'
+    label: '20'
+    machine_name: '20'
+    type: csv
+  '':
+    value: ''
+    label: ''
+    machine_name: ''
+    type: csv
+  title:
+    value: title
+    label: title
+    machine_name: title
+    type: blank
+  17:
+    value: '17'
+    label: '17'
+    machine_name: '17'
+    type: csv
+  21:
+    value: '21'
+    label: '21'
+    machine_name: '21'
+    type: csv
+  22:
+    value: '22'
+    label: '22'
+    machine_name: '22'
+    type: csv
+mappings:
+  -
+    target: field_node_sku
+    map:
+      target_id: '2'
+    settings:
+      language: null
+      reference_by: title
+      autocreate: false
+      feeds_item: false
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: null
+    unique:
+      value: '1'
+  -
+    target: field_price
+    map:
+      value: '17'
+    settings:
+      language: null
+  -
+    target: field_postavschik
+    map:
+      target_id: 'parent:uid'
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+      feeds_item: false
+  -
+    target: field_amount
+    map:
+      value: '22'
+    settings:
+      language: null
+    unique: {  }

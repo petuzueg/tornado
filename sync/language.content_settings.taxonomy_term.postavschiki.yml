@@ -1,0 +1,11 @@
+uuid: 9f059011-f2d5-4cd3-8cfe-cebd569961c6
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.postavschiki
+id: taxonomy_term.postavschiki
+target_entity_type_id: taxonomy_term
+target_bundle: postavschiki
+default_langcode: site_default
+language_alterable: false

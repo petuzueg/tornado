@@ -1,0 +1,43 @@
+uuid: 246eb813-5fa4-4ff9-80a3-55474122fc86
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tovar.body
+    - field.field.node.tovar.feeds_item
+    - field.field.node.tovar.field_amount
+    - field.field.node.tovar.field_node_sku
+    - field.field.node.tovar.field_postavschik
+    - field.field.node.tovar.field_price
+    - field.field.node.tovar.field_raschetnaya_cena
+    - node.type.tovar
+  module:
+    - text
+    - user
+id: node.tovar.teaser
+targetEntityType: node
+bundle: tovar
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true
+  field_amount: true
+  field_node_sku: true
+  field_postavschik: true
+  field_price: true
+  field_raschetnaya_cena: true
+  langcode: true

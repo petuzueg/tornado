@@ -1,0 +1,8 @@
+uuid: 6a183de8-124d-4abe-95c9-ad08371e9739
+langcode: ru
+status: true
+dependencies: {  }
+name: Бренд
+vid: brand
+description: ''
+weight: 0

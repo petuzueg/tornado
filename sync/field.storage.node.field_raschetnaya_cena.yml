@@ -1,0 +1,21 @@
+uuid: ac795779-5b14-4829-8a0a-76f0301c6570
+langcode: ru
+status: true
+dependencies:
+  module:
+    - computed_field
+    - node
+id: node.field_raschetnaya_cena
+field_name: field_raschetnaya_cena
+entity_type: node
+type: computed_decimal
+settings:
+  precision: '10'
+  scale: '0'
+module: computed_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

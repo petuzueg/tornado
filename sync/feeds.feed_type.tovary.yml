@@ -1,0 +1,153 @@
+uuid: f7f44d53-4a7b-4a28-968b-b4ef30e3ff37
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.tovar.body
+    - field.field.node.tovar.field_amount
+    - field.field.node.tovar.field_node_sku
+    - field.field.node.tovar.field_postavschik
+    - field.field.node.tovar.field_price
+    - node.type.tovar
+  module:
+    - feeds_ex
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      c503b4d5-bf08-41d6-95d6-6360b427cbb9:
+        text: Колобокс
+        uuid: c503b4d5-bf08-41d6-95d6-6360b427cbb9
+        plugin: rewrite
+        source: koloboks
+        weight: 0
+        label: Перезапись
+      6a7358b5-85cb-4fa5-8d8c-bac14e3fd136:
+        text: 'Колобокс([articul])'
+        uuid: 6a7358b5-85cb-4fa5-8d8c-bac14e3fd136
+        plugin: rewrite
+        source: title
+        weight: 0
+        label: Перезапись
+      5e4d1f19-0fa8-4a69-9c92-183143053eed:
+        find: '/^0+(?!$)/'
+        replace: ''
+        limit: null
+        uuid: 5e4d1f19-0fa8-4a69-9c92-183143053eed
+        plugin: find_replace_regex
+        source: articul
+        weight: 0
+        label: 'Find replace REGEX'
+label: 'товары - Колобокс'
+id: tovary
+description: ''
+help: ''
+import_period: -1
+fetcher: directory
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml json'
+  allowed_schemes:
+    public: public
+  recursive_scan: false
+parser: jmespath
+parser_configuration:
+  context:
+    value: '[*]'
+  source_encoding:
+    - auto
+  display_errors: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: tovar
+  langcode: ru
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _delete
+  skip_hash_check: false
+  authorize: false
+  revision: false
+  expire: 3600
+  owner_feed_author: false
+  owner_id: 2
+custom_sources:
+  articul:
+    value: articul
+    label: articul
+    machine_name: articul
+    type: json
+  price:
+    value: price
+    label: price
+    machine_name: price
+    type: json
+  count_local:
+    value: count_local
+    label: count_local
+    machine_name: count_local
+    type: json
+  '':
+    value: '*'
+    label: '*'
+    machine_name: ''
+    type: json
+  koloboks:
+    value: Колобокс
+    label: Колобокс
+    machine_name: koloboks
+    type: blank
+  title:
+    value: title
+    label: title
+    machine_name: title
+    type: blank
+mappings:
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: null
+    unique:
+      value: '1'
+  -
+    target: field_node_sku
+    map:
+      target_id: articul
+    settings:
+      language: null
+      reference_by: title
+      autocreate: false
+      feeds_item: false
+  -
+    target: field_price
+    map:
+      value: price
+    settings:
+      language: null
+  -
+    target: field_amount
+    map:
+      value: count_local
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: body
+    map:
+      value: ''
+      summary: ''
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: field_postavschik
+    map:
+      target_id: koloboks
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+      feeds_item: false

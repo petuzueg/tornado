@@ -1,0 +1,59 @@
+uuid: 311fee6e-5295-4cd4-bbcc-7e5cb804b560
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.model
+  module:
+    - feeds_ex
+    - taxonomy
+label: 'Номенклатура - модели (Колобокс)'
+id: nomenklatura_modeli
+description: ''
+help: ''
+import_period: -1
+fetcher: directory
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  allowed_schemes:
+    public: public
+  recursive_scan: false
+parser: xml
+parser_configuration:
+  context:
+    value: /tyresList/product
+  source_encoding:
+    - auto
+  display_errors: false
+  line_limit: 100
+  use_tidy: false
+processor: 'entity:taxonomy_term'
+processor_configuration:
+  values:
+    vid: model
+  langcode: ru
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  model:
+    label: model
+    machine_name: model
+    value: model
+    raw: false
+    inner: false
+    type: xml
+mappings:
+  -
+    target: name
+    map:
+      value: model
+    settings:
+      language: null
+    unique:
+      value: '1'

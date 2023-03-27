@@ -1,0 +1,11 @@
+uuid: 5de7907f-15ed-4dcd-9375-528f67c71329
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.diametr
+id: taxonomy_term.diametr
+target_entity_type_id: taxonomy_term
+target_bundle: diametr
+default_langcode: site_default
+language_alterable: false

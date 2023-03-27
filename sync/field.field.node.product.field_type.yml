@@ -1,0 +1,23 @@
+uuid: f5fd7c18-91bb-44f5-9c61-ce962f4841f1
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_type
+    - node.type.product
+  module:
+    - options
+id: node.product.field_type
+field_name: field_type
+entity_type: node
+bundle: product
+label: Тип
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

@@ -1,0 +1,23 @@
+uuid: 0eeab17f-b752-4d32-b514-f98cec24a5a5
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_foto
+    - node.type.product
+  module:
+    - link
+id: node.product.field_foto
+field_name: field_foto
+entity_type: node
+bundle: product
+label: Фото
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 16
+field_type: link

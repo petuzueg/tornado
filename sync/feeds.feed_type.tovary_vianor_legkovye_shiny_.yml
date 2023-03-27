@@ -1,0 +1,147 @@
+uuid: d8eda285-d60f-443a-ab8c-ff0ba46f826b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.tovar.field_amount
+    - field.field.node.tovar.field_node_sku
+    - field.field.node.tovar.field_postavschik
+    - field.field.node.tovar.field_price
+    - node.type.tovar
+  module:
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      e4b958c1-d613-4697-9341-a2f047759644:
+        text: Vianor
+        uuid: e4b958c1-d613-4697-9341-a2f047759644
+        plugin: rewrite
+        source: 'parent:uid'
+        weight: 0
+        label: Перезапись
+      82502988-d103-454d-85d9-3f0f6e3af2c3:
+        text: 'vianor ([cae])'
+        uuid: 82502988-d103-454d-85d9-3f0f6e3af2c3
+        plugin: rewrite
+        source: title1
+        weight: 0
+        label: Перезапись
+      6cd29eb5-ed6d-4438-8104-545d5a3f08de:
+        uuid: 6cd29eb5-ed6d-4438-8104-545d5a3f08de
+        plugin: cast_to_int
+        source: price1
+        weight: 0
+        label: 'Cast to integer'
+label: 'товары - Vianor (легковые шины)'
+id: tovary_vianor_legkovye_shiny_
+description: ''
+help: ''
+import_period: -1
+fetcher: directory
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  allowed_schemes:
+    public: public
+  recursive_scan: false
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: tovar
+  langcode: ru
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _delete
+  skip_hash_check: false
+  authorize: false
+  revision: false
+  expire: 3600
+  owner_feed_author: true
+  owner_id: 0
+custom_sources:
+  cae:
+    value: cae
+    label: cae
+    machine_name: cae
+    type: csv
+  amount:
+    value: amount
+    label: amount
+    machine_name: amount
+    type: csv
+  price:
+    value: price
+    label: price
+    machine_name: price
+    type: csv
+  '':
+    value: ''
+    label: ''
+    machine_name: ''
+    type: blank
+  title:
+    value: title
+    label: title
+    machine_name: title
+    type: blank
+  price1:
+    value: price
+    label: price
+    machine_name: price1
+    type: csv
+  amount1:
+    value: amount
+    label: amount
+    machine_name: amount1
+    type: csv
+  title1:
+    value: title
+    label: title
+    machine_name: title1
+    type: blank
+mappings:
+  -
+    target: field_postavschik
+    map:
+      target_id: 'parent:uid'
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+      feeds_item: false
+  -
+    target: field_node_sku
+    map:
+      target_id: cae
+    settings:
+      language: null
+      reference_by: title
+      autocreate: false
+      feeds_item: false
+  -
+    target: field_price
+    map:
+      value: price1
+    settings:
+      language: null
+  -
+    target: field_amount
+    map:
+      value: amount1
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: title
+    map:
+      value: title1
+    settings:
+      language: null
+    unique:
+      value: '1'

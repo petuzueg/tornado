@@ -1,0 +1,23 @@
+uuid: 690469e9-ffcf-4da1-b9f1-91c301af78aa
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tire_profile
+    - node.type.product
+id: node.product.field_tire_profile
+field_name: field_tire_profile
+entity_type: node
+bundle: product
+label: 'Профиль шины'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal
