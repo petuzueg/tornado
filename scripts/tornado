@@ -1,1 +1,21 @@
-/etc/cron.d/tornado
+# Запуск крона каждые три часа
+#15 * * * * www-data /usr/bin/wget -O - -q -t 1 http://generalshop.ru/cron.php?cron_key=IbIhXCc80VnyNGuSaBiGzKeL6uXKnhl946I8us3-uHg
+
+# Загрузка цен с серверов.
+14 * * * * www-data /bin/sh /var/www/tornado.generalshop.ru/scripts/get_data_from_server.sh
+
+# Генерация файла для импорта для 4tochki.
+16 * * * * www-data /usr/bin/php /var/www/tornado.generalshop.ru/scripts/4tochki/get_csv_prices.php
+
+# Генерация файла для импорта для Vianor.
+18 * * * * www-data /usr/bin/php /var/www/tornado.generalshop.ru/scripts/vianor/get_csv_prices.php
+
+# Обновление цен.
+20 * * * * www-data /bin/sh /var/www/tornado.generalshop.ru/scripts/run_imports_hourly.sh
+
+# Обновление токена OAuth2.0 для Kolobox.
+1 6,18 * * * www-data /bin/sh /var/www/tornado.generalshop.ru/scripts/refresh_kolobox_token.sh
+
+# Обновление словарей, МРЦ.
+5 9 * * * www-data /bin/sh /var/www/tornado.generalshop.ru/scripts/run_imports_once.sh
+
