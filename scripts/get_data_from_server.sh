@@ -5,7 +5,9 @@ path="${path}/web/sites/default/files/feeds"
 
 #VIANOR
 # Get Vianor prices.
-wget 'https://b2b.vianor-tyres.ru/online/catalog/store.xml?token=d1bcdd79f51587cd1dccf4ec43c6db51&tire=true&wheel=true&truck-tire=true&truck-wheel=true' -O ${path}/tmp/vianor-catalog_unprocessed.xml
+# wget 'https://b2b.vianor-tyres.ru/online/catalog/store.xml?token=d1bcdd79f51587cd1dccf4ec43c6db51&tire=true&wheel=true&truck-tire=true&truck-wheel=true' -O ${path}/tmp/vianor-catalog_unprocessed.xml
+
+wget 'https://b2b.vianor-tyres.ru/online/catalog/store.xml?token=d1bcdd79f51587cd1dccf4ec43c6db51&tire=true&wheel=true&truck-tire=true&truck-wheel=false' -O ${path}/tmp/vianor-catalog_unprocessed.xml
 
 # SHINSERVICE
 wget -O "${path}/csv/shinservice-b2b-tyres.csv" https://duplo.shinservice.ru/xml/shinservice-b2b-tyres.csv?id=88888893 &

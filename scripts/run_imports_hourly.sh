@@ -9,6 +9,9 @@ drush -y $params feeds:import 6  # Товары Колобокс
 drush -y $params feeds:import 13 # Товары 4tochki
 drush -y $params feeds:import 16 # Товары Vianor
 
+iconv -f windows-1251 -t utf-8 /var/www/generalshop.ru/sites/default/files/uploads/AUTORUSshina.csv > /var/www/tornado.generalshop.ru/web/sites/default/files/feeds/xml/autorus_shina.xml
+drush -y $params feeds:import 17 # Товары Авторусь
+
 # Сбросить кэш GS.
 drush $paramsGS cc all
 

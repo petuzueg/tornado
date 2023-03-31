@@ -1,3 +1,5 @@
+#* * * * * www-data /bin/touch /var/www/tornado.generalshop.ru/sites/default/files/export/crontest
+
 # Запуск крона каждые три часа
 #15 * * * * www-data /usr/bin/wget -O - -q -t 1 http://generalshop.ru/cron.php?cron_key=IbIhXCc80VnyNGuSaBiGzKeL6uXKnhl946I8us3-uHg
 
