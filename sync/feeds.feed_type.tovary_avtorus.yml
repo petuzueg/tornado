@@ -1,0 +1,151 @@
+uuid: 3a0bb21a-2c3d-45a7-a87f-3ff1c08072fb
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.tovar.field_amount
+    - field.field.node.tovar.field_node_sku
+    - field.field.node.tovar.field_postavschik
+    - field.field.node.tovar.field_price
+    - node.type.tovar
+  module:
+    - feeds_ex
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      0aafd5c2-8fd4-43c4-bb0f-d5303ae522bd:
+        text: 'Авторусь([artikul])'
+        uuid: 0aafd5c2-8fd4-43c4-bb0f-d5303ae522bd
+        plugin: rewrite
+        source: title_artikul
+        weight: 0
+        label: Перезапись
+      2c1b6605-be03-4876-abe8-e6db88e94ff6:
+        default_value: Авторусь
+        only_if_empty: false
+        uuid: 2c1b6605-be03-4876-abe8-e6db88e94ff6
+        plugin: default_value
+        source: postavschik
+        weight: 0
+        label: 'Set value or default value'
+      e46b2304-1723-4c10-bda5-4fb09c3df302:
+        find: "\_"
+        replace: ''
+        case_sensitive: false
+        word_boundaries: false
+        whole: false
+        uuid: e46b2304-1723-4c10-bda5-4fb09c3df302
+        plugin: find_replace
+        source: cenaklientu
+        weight: 0
+        label: 'Find replace'
+label: 'товары - Авторусь'
+id: tovary_avtorus
+description: ''
+help: ''
+import_period: -1
+fetcher: directory
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  allowed_schemes:
+    public: public
+  recursive_scan: false
+parser: xml
+parser_configuration:
+  context:
+    value: /data/good
+  source_encoding:
+    - auto
+  display_errors: false
+  line_limit: 100
+  use_tidy: false
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: tovar
+  langcode: ru
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _delete
+  skip_hash_check: false
+  authorize: false
+  revision: false
+  expire: 3600
+  owner_feed_author: false
+  owner_id: 7
+custom_sources:
+  artikul:
+    label: Артикул
+    machine_name: artikul
+    value: Артикул
+    raw: false
+    inner: false
+    type: xml
+  cenaklientu:
+    label: ЦенаКлиенту
+    machine_name: cenaklientu
+    value: ЦенаКлиенту
+    raw: false
+    inner: false
+    type: xml
+  nalichie:
+    label: Наличие
+    machine_name: nalichie
+    value: Наличие
+    raw: false
+    inner: false
+    type: xml
+  title_artikul:
+    label: Артикул
+    machine_name: title_artikul
+    value: Артикул
+    raw: false
+    inner: false
+    type: xml
+  postavschik:
+    value: Поставщик
+    label: Поставщик
+    machine_name: postavschik
+    type: blank
+mappings:
+  -
+    target: field_node_sku
+    map:
+      target_id: artikul
+    settings:
+      language: ''
+      reference_by: title
+      feeds_item: guid
+      autocreate: 0
+  -
+    target: field_price
+    map:
+      value: cenaklientu
+    settings:
+      language: null
+  -
+    target: title
+    map:
+      value: title_artikul
+    settings:
+      language: null
+    unique:
+      value: '1'
+  -
+    target: field_amount
+    map:
+      value: nalichie
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_postavschik
+    map:
+      target_id: postavschik
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+      feeds_item: false

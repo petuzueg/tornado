@@ -1,185 +1,38 @@
-uuid: 3d8e18bf-e92f-46c1-adb3-646e602a0a58
+uuid: 413653dd-b767-4d22-827e-4c828118c1ed
 langcode: ru
 status: true
 dependencies:
   module:
-    - dblog
-    - user
+    - feeds_log
 _core:
-  default_config_hash: j0txIxY4nkJT_dscmXckM-1vanygDkJAeHPawZKfyH0
-id: watchdog
-label: Журнал
+  default_config_hash: RvCj4GUZsYbSO64_CLyTAHbZoAQi9V-baFZOzSY-92Q
+id: feeds_import_logs
+label: 'Feeds import logs'
 module: views
-description: 'Последние записи журнала'
+description: ''
 tag: ''
-base_table: watchdog
-base_field: wid
+base_table: feeds_import_log
+base_field: import_id
 display:
   default:
     id: default
-    display_title: 'По умолчанию'
+    display_title: Master
     display_plugin: default
     position: 0
     display_options:
-      title: 'Последние записи журнала'
+      title: Logs
       fields:
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: Иконка
-          plugin_id: custom
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: icon
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-        wid:
-          id: wid
-          table: watchdog
-          field: wid
+        import_id:
+          id: import_id
+          table: feeds_import_log
+          field: import_id
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: standard
-          label: WID
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-        severity:
-          id: severity
-          table: watchdog
-          field: severity
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: machine_name
-          label: Важность
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          machine_name: false
-        type:
-          id: type
-          table: watchdog
-          field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: standard
-          label: Type
+          entity_type: feeds_import_log
+          entity_field: import_id
+          plugin_id: field
+          label: ID
           exclude: false
           alter:
             alter_text: false
@@ -220,15 +73,32 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-        timestamp:
-          id: timestamp
-          table: watchdog
-          field: timestamp
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        start:
+          id: start
+          table: feeds_import_log
+          field: start
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: date
-          label: Дата
+          entity_type: feeds_import_log
+          entity_field: start
+          plugin_id: field
+          label: 'Import start time'
           exclude: false
           alter:
             alter_text: false
@@ -269,46 +139,61 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          date_format: short
-          custom_date_format: ''
-          timezone: ''
-        message:
-          id: message
-          table: watchdog
-          field: message
+          click_sort_column: value
+          type: timestamp
+          settings:
+            date_format: medium
+            custom_date_format: ''
+            timezone: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        end:
+          id: end
+          table: feeds_import_log
+          field: end
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: dblog_message
-          label: Сообщение
+          entity_type: feeds_import_log
+          entity_field: end
+          plugin_id: field
+          label: 'Import finish time'
           exclude: false
           alter:
             alter_text: false
             text: ''
-            make_link: true
-            path: 'admin/reports/dblog/event/{{ wid }}'
+            make_link: false
+            path: ''
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: сообщение
+            alt: ''
             rel: ''
             link_class: ''
             prefix: ''
             suffix: ''
             target: ''
             nl2br: false
-            max_length: 56
+            max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: true
-            trim: true
+            strip_tags: false
+            trim: false
             preserve_tags: ''
-            html: true
+            html: false
           element_type: ''
           element_class: ''
           element_label_type: ''
@@ -321,16 +206,31 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          replace_variables: true
-        name:
-          id: name
-          table: users_field_data
-          field: name
-          relationship: uid
+          click_sort_column: value
+          type: timestamp
+          settings:
+            date_format: medium
+            custom_date_format: ''
+            timezone: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        uid:
+          id: uid
+          table: feeds_import_log
+          field: uid
+          relationship: none
           group_type: group
           admin_label: ''
-          entity_type: user
-          entity_field: name
+          entity_type: feeds_import_log
+          entity_field: uid
           plugin_id: field
           label: User
           exclude: false
@@ -373,11 +273,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: user_name
+          click_sort_column: target_id
+          type: entity_reference_label
           settings:
-            link_to_entity: true
-          group_column: value
+            link: true
+          group_column: target_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -387,15 +287,17 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        link:
-          id: link
-          table: watchdog
-          field: link
+        sources_value:
+          id: sources_value
+          table: feeds_import_log__sources
+          field: sources_value
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: dblog_operations
-          label: Operations
+          entity_type: feeds_import_log
+          entity_field: sources
+          plugin_id: field
+          label: Sources
           exclude: false
           alter:
             alter_text: false
@@ -436,11 +338,133 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          click_sort_column: value
+          type: feeds_log_file_uri_link
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: ul
+          separator: ', '
+          field_api_classes: false
+        lid:
+          id: lid
+          table: feeds_import_log_entry
+          field: lid
+          relationship: none
+          group_type: count
+          admin_label: ''
+          plugin_id: numeric
+          label: 'Number of entries'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ','
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+        operations:
+          id: operations
+          table: feeds_import_log
+          field: operations
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: null
+          entity_field: null
+          plugin_id: entity_operations
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          destination: false
       pager:
         type: mini
         options:
           offset: 0
-          items_per_page: 50
+          items_per_page: 30
           total_pages: null
           id: 0
           tags:
@@ -457,203 +481,124 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Фильтр
-          reset_button: true
+          submit_button: Apply
+          reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
-          expose_sort_order: false
+          expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: perm
-        options:
-          perm: 'access site reports'
+        type: feeds_log_access
+        options: {  }
       cache:
-        type: none
+        type: tag
         options: {  }
       empty:
-        area:
+        area_text_custom:
           id: area_text_custom
           table: views
           field: area_text_custom
           relationship: none
           group_type: group
-          admin_label: 'В системном журнале нет сообщений.'
+          admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'В системном журнале нет сообщений.'
+          content: 'There are no logged imports yet.'
           tokenize: false
-      sorts:
-        wid:
-          id: wid
-          table: watchdog
-          field: wid
+      sorts: {  }
+      arguments:
+        feed:
+          id: feed
+          table: feeds_import_log
+          field: feed
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: standard
-          order: DESC
-          expose:
-            label: ''
-            field_identifier: wid
-          exposed: false
-      arguments: {  }
-      filters:
-        type:
-          id: type
-          table: watchdog
-          field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: dblog_types
-          operator: in
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: type_op
-            label: Type
-            description: ''
-            use_operator: false
-            operator: type_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: type
-            required: false
-            remember: false
-            multiple: true
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        severity:
-          id: severity
-          table: watchdog
-          field: severity
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: in_operator
-          operator: in
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: severity_op
-            label: Важность
-            description: ''
-            use_operator: false
-            operator: severity_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: severity
-            required: false
-            remember: false
-            multiple: true
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
+          entity_type: feeds_import_log
+          entity_field: feed
+          plugin_id: numeric
+          default_action: 'not found'
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: fixed
+          default_argument_options:
+            argument: ''
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: true
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
+      filters: {  }
       style:
         type: table
         options:
           grouping: {  }
-          row_class: '{{ type }} {{ severity }}'
+          row_class: ''
           default_row_class: true
           columns:
-            nothing: nothing
-            wid: wid
-            severity: severity
-            type: type
-            timestamp: timestamp
-            message: message
-            name: name
-            link: link
-          default: wid
+            import_id: import_id
+            start: start
+            end: end
+            uid: uid
+            sources_value: sources_value
+            operations: operations
+          default: start
           info:
-            nothing:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-medium
-            wid:
-              sortable: false
-              default_sort_order: desc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            severity:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            type:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-medium
-            timestamp:
-              sortable: true
-              default_sort_order: desc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            message:
+            import_id:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            name:
+            start:
               sortable: true
+              default_sort_order: desc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            end:
+              sortable: true
+              default_sort_order: desc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            uid:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: priority-medium
-            link:
+              responsive: ''
+            sources_value:
               align: ''
               separator: ''
               empty_column: false
-              responsive: priority-low
+              responsive: ''
+            operations:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
           override: true
           sticky: false
           summary: ''
@@ -661,7 +606,7 @@ display:
           caption: ''
           description: ''
       row:
-        type: fields
+        type: 'entity:feeds_import_log'
       query:
         type: views_query
         options:
@@ -670,17 +615,8 @@ display:
           distinct: false
           replica: false
           query_tags: {  }
-      relationships:
-        uid:
-          id: uid
-          table: watchdog
-          field: uid
-          relationship: none
-          group_type: group
-          admin_label: User
-          plugin_id: standard
-          required: false
-      css_class: admin-dblog
+      relationships: {  }
+      group_by: true
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -691,16 +627,29 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user.permissions
       tags: {  }
-  page:
-    id: page
+  page_1:
+    id: page_1
     display_title: Page
     display_plugin: page
     position: 1
     display_options:
       display_extenders: {  }
-      path: admin/reports/dblog
+      path: feed/%feeds_feed/log
+      menu:
+        type: none
+        title: Overview
+        description: ''
+        weight: 0
+        expanded: false
+        menu_name: main
+        parent: ''
+        context: '0'
+      tab_options:
+        type: tab
+        title: Logs
+        description: ''
+        weight: 0
     cache_metadata:
       max-age: -1
       contexts:
@@ -708,5 +657,4 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user.permissions
       tags: {  }

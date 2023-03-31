@@ -1017,7 +1017,7 @@ display:
           exception:
             value: all
             title_enable: false
-            title: Все
+            title: All
           title_enable: true
           title: 'Информация про использование файла для {{ arguments.fid }}'
           default_argument_type: fixed
